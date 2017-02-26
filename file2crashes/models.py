@@ -16,7 +16,7 @@ class Crashes(db.Model):
     date = db.Column(db.Date)
     directory = db.Column(db.String(256))
     file = db.Column(db.String(128))
-    url = db.Column(db.UnicodeText)
+    url = db.Column(db.Text)
     count = db.Column(db.Integer, default=0)
     signature = db.Column(db.String(512))
 
