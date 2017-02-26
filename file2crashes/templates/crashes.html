@@ -6,10 +6,10 @@
 </head>
 <body>
   <ul>
-    {% for file, info in crashes.items() -%}
+    {% for file in sorted(crashes.keys()) -%}
     <li>{{ file }}
       <ul>
-        {% for url, count, signature in info -%}
+        {% for url, count, signature in crashes[file] -%}
         <li>{{ count }} {{ plural(count) }}, signature is <a href="{{ url|safe }}">{{ signature }}</a></li>
         {% endfor -%}
       </ul>

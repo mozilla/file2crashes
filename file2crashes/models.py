@@ -82,7 +82,8 @@ class Crashes(db.Model):
             for c in cs:
                 r[c.file].append([c.url, c.count, c.signature])
 
-            return {f: sorted(u, key=lambda p: p[1]) for f, u in r.items()}
+            return {f: sorted(u, key=lambda p: p[1],
+                              reverse=True) for f, u in r.items()}
 
         return {}
 
