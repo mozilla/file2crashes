@@ -6,7 +6,7 @@
 </head>
 <body>
   <ul>
-    {% for file in sorted(crashes.keys()) -%}
+    {% for file in sortfun(crashes.keys()) -%}
     <li>{{ file }}
       <ul>
         {% for url, count, signature in crashes[file] -%}

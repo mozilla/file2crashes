@@ -37,4 +37,5 @@ def crashes():
 
     return render_template('crashes.html',
                            plural=plural,
+                           sortfun=sorted,
                            crashes=crashes)
