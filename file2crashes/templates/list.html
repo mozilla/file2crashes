@@ -5,6 +5,8 @@
   <title>Directories</title>
 </head>
 <body>
+  <h1>{{ product }} &mdash; {{ date }}</h1>
+  <br>
   <ul>
     {% for d in dirs -%}
     <li><a href="{{ (base_url + quote(d, safe=''))|safe}}">{{ d }}</a></li>

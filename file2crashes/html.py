@@ -18,6 +18,8 @@ def listdirs():
                                                                    channel,
                                                                    date)
     return render_template('list.html',
+                           product=product,
+                           date=date,
                            quote=quote,
                            base_url=url,
                            dirs=dirs)
@@ -36,6 +38,8 @@ def crashes():
         return 'crash' if n == 1 else 'crashes'
 
     return render_template('crashes.html',
+                           product=product,
+                           date=date,
                            plural=plural,
                            sortfun=sorted,
                            crashes=crashes)

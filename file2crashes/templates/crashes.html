@@ -5,6 +5,8 @@
   <title>Files</title>
 </head>
 <body>
+  <h1>{{ product }} &mdash; {{ date }}</h1>
+  <br>
   <ul>
     {% for file in sortfun(crashes.keys()) -%}
     <li>{{ file }}
