@@ -32,6 +32,13 @@ def listdirs():
     return api.listdirs()
 
 
+@app.route('/dump', methods=['GET'])
+@cross_origin()
+def dump():
+    from file2crashes import api
+    return api.dump()
+
+
 @app.route('/')
 @app.route('/list.html')
 def list_html():

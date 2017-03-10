@@ -19,3 +19,8 @@ def listdirs():
     date = request.args.get('date', 'today')
     log.info('List directories for {}, the {}'.format(product, date))
     return jsonify(models.Crashes.listdirs(product, 'nightly', date))
+
+
+def dump():
+    log.info('Dump')
+    return jsonify(models.dump())

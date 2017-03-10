@@ -88,6 +88,15 @@ class Crashes(db.Model):
         return {}
 
     @staticmethod
+    def dump(product, channel, directory, date):
+        cs = db.session.query(Crashes)
+        r = []
+        for c in cs:
+            r.append[c.file, c.url, c.count, c.signature]
+
+        return r
+
+    @staticmethod
     def listdirs(product, channel, date):
         cs = db.session.query(Crashes).filter_by(product=product,
                                                  channel=channel,
