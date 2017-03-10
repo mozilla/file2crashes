@@ -23,4 +23,4 @@ def listdirs():
 
 def dump():
     log.info('Dump')
-    return jsonify(models.dump())
+    return jsonify(models.Crashes.dump())
