@@ -22,5 +22,6 @@ def listdirs():
 
 
 def dump():
-    log.info('Dump')
-    return jsonify(models.Crashes.dump())
+    date = request.args.get('date', 'today')
+    log.info('Dump, the {}'.format(date))
+    return jsonify(models.Crashes.dump(date))

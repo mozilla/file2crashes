@@ -88,11 +88,13 @@ class Crashes(db.Model):
         return {}
 
     @staticmethod
-    def dump():
-        cs = db.session.query(Crashes)
+    def dump(date):
+        date = f2cutils.get_date(date)
         r = []
-        for c in cs:
-            r.append[c.file, c.url, c.count, c.signature]
+        if date:
+            cs = db.session.query(Crashes)
+            for c in cs:
+                r.append[c.product, c.channel, c.date, c.directory, c.file, c.url, c.count, c.signature]
 
         return r
 
