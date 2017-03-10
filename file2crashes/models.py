@@ -92,7 +92,7 @@ class Crashes(db.Model):
         date = f2cutils.get_date(date)
         r = []
         if date:
-            cs = db.session.query(Crashes)
+            cs = db.session.query(Crashes).filter_by(date=date)
             for c in cs:
                 r.append[c.product, c.channel, c.date, c.directory, c.file, c.url, c.count, c.signature]
 
