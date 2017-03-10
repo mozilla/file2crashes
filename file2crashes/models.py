@@ -88,7 +88,7 @@ class Crashes(db.Model):
         return {}
 
     @staticmethod
-    def dump(product, channel, directory, date):
+    def dump():
         cs = db.session.query(Crashes)
         r = []
         for c in cs:
