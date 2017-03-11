@@ -70,6 +70,20 @@ class Crashes(db.Model):
         return False
 
     @staticmethod
+    def put_dump(data):
+        if data:
+            for line in data:
+                Crashes.put(line[0],
+                            line[1],
+                            line[2],
+                            line[3] + '/' + line[4],
+                            line[5],
+                            line[6],
+                            line[7],
+                            commit=False)
+            db.session.commit()
+
+    @staticmethod
     def get(product, channel, directory, date):
         if directory:
             date = f2cutils.get_date(date)
@@ -94,7 +108,10 @@ class Crashes(db.Model):
         if date:
             cs = db.session.query(Crashes).filter_by(date=date)
             for c in cs:
-                r.append([c.product, c.channel, c.date, c.directory, c.file, c.url, c.count, c.signature])
+                r.append([c.product, c.channel,
+                          c.date, c.directory,
+                          c.file, c.url, c.count,
+                          c.signature])
 
         return r
 
