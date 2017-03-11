@@ -14,11 +14,13 @@ def listdirs():
     date = utils.get_correct_date(date)
     channel = 'nightly'
     dirs = models.Crashes.listdirs(product, channel, date)
+    dates = models.Crashes.listdates()
     url = 'crashes.html?product={}&channel={}&date={}&dir='.format(product,
                                                                    channel,
                                                                    date)
     return render_template('list.html',
                            product=product,
+                           dates=dates,
                            date=date,
                            quote=quote,
                            base_url=url,

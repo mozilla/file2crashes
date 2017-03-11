@@ -5,6 +5,7 @@
 from collections import defaultdict
 from file2crashes import utils as f2cutils
 from file2crashes import app, db, analyze
+from sqlalchemy import distinct
 
 
 class Crashes(db.Model):
@@ -100,6 +101,15 @@ class Crashes(db.Model):
                               reverse=True) for f, u in r.items()}
 
         return {}
+
+    @staticmethod
+    def listdates():
+        dates = db.session.query(distinct(Crashes.date))
+        dates = map(lambda d: d[0], dates)
+        dates = sorted(dates, reverse=True)
+        dates = map(lambda d: d.strftime('%Y-%m-%d'), dates)
+
+        return list(dates)
 
     @staticmethod
     def dump(date):

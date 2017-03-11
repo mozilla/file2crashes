@@ -1,22 +1,23 @@
 <!doctype html>
 <html lang="en-us">
-<head>
-  <meta charset="utf-8">
-  <title>Files</title>
-</head>
-<body>
-  <h1>{{ product }} &mdash; {{ date }}</h1>
-  <br>
-  <ul>
-    {% for file in sortfun(crashes.keys()) -%}
-    <li>{{ file }}
-      <ul>
-        {% for url, count, signature in crashes[file] -%}
-        <li>{{ count }} {{ plural(count) }}, signature is <a href="{{ url|safe }}">{{ signature }}</a></li>
-        {% endfor -%}
-      </ul>
-    </li>
-    {% endfor -%}
-  </ul>
-</body>
+  <head>
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta charset="utf-8">
+    <title>Files</title>
+  </head>
+  <body>
+    <h1>{{ product }} &mdash; {{ date }}</h1>
+    <br>
+    <ul>
+      {% for file in sortfun(crashes.keys()) -%}
+      <li>{{ file }}
+        <ul>
+          {% for url, count, signature in crashes[file] -%}
+          <li>{{ count }} {{ plural(count) }}, signature is <a href="{{ url|safe }}">{{ signature }}</a></li>
+          {% endfor -%}
+        </ul>
+      </li>
+      {% endfor -%}
+    </ul>
+  </body>
 </html>

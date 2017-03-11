@@ -1,16 +1,33 @@
 <!doctype html>
 <html lang="en-us">
-<head>
-  <meta charset="utf-8">
-  <title>Directories</title>
-</head>
-<body>
-  <h1>{{ product }} &mdash; {{ date }}</h1>
-  <br>
-  <ul>
-    {% for d in dirs -%}
-    <li><a href="{{ (base_url + quote(d, safe=''))|safe}}">{{ d }}</a></li>
-    {% endfor -%}
-  </ul>
-</body>
+  <head>
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta charset="utf-8">
+    <title>Directories</title>
+  </head>
+  <body>
+    <h1>{{ product }} &mdash; {{ date }}</h1>
+    <p>Select a date:&nbsp
+      <select onchange="location.href='?date=' + this.options[this.selectedIndex].value;">
+        {% for d in dates -%}
+        {% if d == date -%}
+        <option value="{{ d }}" selected>{{ d }}</option>
+        {% else -%}
+        <option value="{{ d }}">{{ d }}</option>
+        {% endif -%}
+        {% endfor -%}
+      </select>
+    </p>
+    <p>
+      These directories contain the files which appeared in a backtrace of a new crash.
+    </p>
+    <p>
+      A new crash is just a crash which doesn't exist in the last three days and appeared suddently.
+    </p>
+    <ul>
+      {% for d in dirs -%}
+      <li><a href="{{ (base_url + quote(d, safe=''))|safe}}">{{ d }}</a></li>
+      {% endfor -%}
+    </ul>
+  </body>
 </html>
