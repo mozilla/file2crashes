@@ -8,7 +8,7 @@ from file2crashes import app, db, analyze
 
 
 class Crashes(db.Model):
-    __tablename__ = 'crashes'
+    __tablename__ = 'file_to_crashes'
 
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     product = db.Column(db.String(20))
