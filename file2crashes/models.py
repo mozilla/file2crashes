@@ -135,6 +135,6 @@ def update(date='today'):
 
 def create():
     engine = db.get_engine(app)
-    if not engine.dialect.has_table(engine, 'crashes'):
+    if not engine.dialect.has_table(engine, 'file_to_crashes'):
         db.create_all()
         update()
