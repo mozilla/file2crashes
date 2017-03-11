@@ -7,7 +7,9 @@
   </head>
   <body>
     <h1>{{ product }} &mdash; {{ date }}</h1>
-    <br>
+    <p>
+      A same signature can appear several times but for each link, the backtrace is different.
+    </p>
     <ul>
       {% for file in sortfun(crashes.keys()) -%}
       <li>{{ file }}
